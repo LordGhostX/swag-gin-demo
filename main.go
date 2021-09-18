@@ -7,15 +7,16 @@ import (
 
 // todo represents data about a task in the todo list
 type todo struct {
-	ID string `json:"id"`
+	ID   string `json:"id"`
 	Task string `json:"task"`
 }
 
-// Todos slice to seed todo list data
+// todo slice to seed todo list data
 var todoList = []todo{
 	{"1", "Learn Go"},
 	{"2", "Build an API with Go"},
 	{"3", "Document the API with Swag"},
+	{"4", "Deploy the API for everyone"},
 }
 
 func main() {
