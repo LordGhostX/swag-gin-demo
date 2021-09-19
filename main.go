@@ -26,7 +26,7 @@ var todoList = []todo{
 	{"3", "Document the API with swag"},
 }
 
-// @title Go Todo API
+// @title Go + Gin Todo API
 // @version 1.0
 // @description This is a sample server todo server. You can visit the GitHub repository at https://github.com/LordGhostX/swag-gin-demo
 

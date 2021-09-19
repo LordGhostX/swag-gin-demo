@@ -181,7 +181,7 @@ var SwaggerInfo = swaggerInfo{
 	Host:        "localhost:8080",
 	BasePath:    "/",
 	Schemes:     []string{},
-	Title:       "Go Todo API",
+	Title:       "Go + Gin Todo API",
 	Description: "This is a sample server todo server. You can visit the GitHub repository at https://github.com/LordGhostX/swag-gin-demo",
 }
 

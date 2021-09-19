@@ -2,7 +2,7 @@
     "swagger": "2.0",
     "info": {
         "description": "This is a sample server todo server. You can visit the GitHub repository at https://github.com/LordGhostX/swag-gin-demo",
-        "title": "Go Todo API",
+        "title": "Go + Gin Todo API",
         "contact": {
             "name": "API Support",
             "url": "http://www.swagger.io/support",
