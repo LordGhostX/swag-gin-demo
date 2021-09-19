@@ -1,0 +1,102 @@
+basePath: /
+definitions:
+  main.message:
+    properties:
+      message:
+        type: string
+    type: object
+  main.todo:
+    properties:
+      id:
+        type: string
+      task:
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact:
+    email: support@swagger.io
+    name: API Support
+    url: http://www.swagger.io/support
+  description: This is a sample server todo server. You can visit the GitHub repository
+    at https://github.com/LordGhostX/swag-gin-demo
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  title: Go Todo API
+  version: "1.0"
+paths:
+  /todo:
+    get:
+      operationId: get-all-todos
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.todo'
+      summary: get all items in the todo list
+    post:
+      operationId: create-todo
+      parameters:
+      - description: todo data
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/main.todo'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.todo'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.message'
+      summary: add a new item to the todo list
+  /todo/{id}:
+    delete:
+      operationId: delete-todo-by-id
+      parameters:
+      - description: todo ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.todo'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/main.message'
+      summary: delete a todo item by ID
+    get:
+      operationId: get-todo-by-id
+      parameters:
+      - description: todo ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.todo'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/main.message'
+      summary: get a todo item by ID
+swagger: "2.0"
