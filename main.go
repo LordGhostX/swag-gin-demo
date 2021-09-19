@@ -124,7 +124,7 @@ func deleteTodo(c *gin.Context) {
 	for index, todo := range todoList {
 		if todo.ID == ID {
 			todoList = append(todoList[:index], todoList[index+1:]...)
-			r := message{"successfully deleted tod"}
+			r := message{"successfully deleted todo"}
 			c.JSON(http.StatusOK, r)
 			return
 		}
