@@ -3,6 +3,7 @@ package main
 import (
 	"github.com/gin-gonic/gin"
 	"net/http"
+	"os"
 )
 
 // todo represents data about a task in the todo list
@@ -15,8 +16,7 @@ type todo struct {
 var todoList = []todo{
 	{"1", "Learn Go"},
 	{"2", "Build an API with Go"},
-	{"3", "Document the API with Swag"},
-	{"4", "Deploy the API for everyone"},
+	{"3", "Document the API with swag"},
 }
 
 func main() {
@@ -26,7 +26,10 @@ func main() {
 	router.POST("/todo", createTodo)
 	router.DELETE("/todo/:id", deleteTodo)
 
-	router.Run()
+	err := router.Run()
+	if err != nil {
+		os.Exit(1)
+	}
 }
 
 func getAllTodos(c *gin.Context) {
@@ -55,6 +58,9 @@ func createTodo(c *gin.Context) {
 
 	// bind the received JSON data to newTodo
 	if err := c.BindJSON(&newTodo); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"message": "an error occurred while creating todo",
+		})
 		return
 	}
 
